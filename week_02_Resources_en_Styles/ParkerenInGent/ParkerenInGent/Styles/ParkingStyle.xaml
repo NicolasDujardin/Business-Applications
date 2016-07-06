@@ -1,0 +1,47 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ParkerenInGent.Styles">
+
+    <Style x:Name="OpmaakGrid" TargetType="Grid" >
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Background" Value="Green" />
+        
+    </Style>
+
+    <Style x:Name="StandaardOpmaak" TargetType="TextBlock" >
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Name="DetailOpmaak" TargetType="TextBlock" BasedOn="{StaticResource StandaardOpmaak}">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Grid.Row" Value="1" />
+    </Style>
+
+    <Style x:Name="OpmaakP" TargetType="TextBlock" BasedOn="{StaticResource StandaardOpmaak}">
+        <Setter Property="Text" Value="P" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="90" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Grid.Row" Value="0" />
+    </Style>
+
+    <Style x:Name="OpmaakDescription" TargetType="TextBlock" BasedOn="{StaticResource DetailOpmaak}">
+        <Setter Property="Text" Value="Description" />
+    </Style>
+
+    <Style x:Name="OpmaakCapacity" TargetType="TextBlock" BasedOn="{StaticResource DetailOpmaak}">
+        <Setter Property="Text" Value="Capacity" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Name="Swarming" TargetType="Grid" BasedOn="{StaticResource OpmaakGrid}">
+        <Setter Property="Background" Value="Orange"/>
+    </Style>
+
+    <Style x:Name="Full" TargetType="Grid" BasedOn="{StaticResource OpmaakGrid}" >
+        <Setter Property="Background" Value="Red" />
+    </Style>
+
+</ResourceDictionary>

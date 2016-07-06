@@ -1,0 +1,17 @@
+﻿<Application
+    x:Class="ContinentLandStadFotos.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ContinentLandStadFotos.UWP"
+    xmlns:services="using:ContinentLandStadFotos.UWP.Services"
+    RequestedTheme="Light">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DataTemplates/DataTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <services:IoCContainer x:Key="ioc" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

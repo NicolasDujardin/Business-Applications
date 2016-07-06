@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="ZesDaagseGent.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZesDaagseGent.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource ioc}, Path=ApplicationViewModel}"
+    mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar Background="Transparent" IsOpen="False" Grid.Row="4" >
+            <AppBarButton Icon="Home" Label="Home" Command="{Binding ToHomeCMD}" />
+            <AppBarButton Label="Teams" Command="{Binding ToCreateTeamCMD}">
+                <Image Source="/Assets/team.png" />
+            </AppBarButton>
+            <AppBarButton Label="Dernys" Command="{Binding ToDernysCMD}">
+                <Image Source="/Assets/dernys.png" />
+            </AppBarButton>
+
+            <AppBarButton Icon="Edit" Label="Edit" Command="{Binding ToEditCyclistCMD}"/>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Setting" Label="Settings"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Frame Content="{Binding CurrentPage}"  />
+    </Grid>
+
+</Page>

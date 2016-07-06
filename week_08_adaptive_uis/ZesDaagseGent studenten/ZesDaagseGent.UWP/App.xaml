@@ -1,0 +1,17 @@
+﻿<Application
+    x:Class="ZesDaagseGent.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:services="using:ZesDaagseGent.UWP.Services"
+    xmlns:local="using:ZesDaagseGent.UWP"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <ResourceDictionary>
+            <services:IocContainer x:Key="ioc" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DataTemplates/DataTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

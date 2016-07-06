@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="ZesDaagseGent.UWP.Pages.CreateTeamPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZesDaagseGent.UWP.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource ioc},Path=CreateTeamViewModel}"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Creating Teams! (1)" HorizontalAlignment="Center" />
+        <ContentControl Content="{Binding}" Grid.Row="1" HorizontalContentAlignment="Stretch" ContentTemplate="{StaticResource SelectTeamMembers}" />
+        <Border Grid.Row="3" BorderThickness="1" BorderBrush="DarkGray" Margin="4">
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="33" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Teams" HorizontalAlignment="Center" />
+                <ListBox Grid.Row="1" ItemsSource="{Binding Teams}" ItemTemplate="{StaticResource TeamDataTemplateAdaptive}" Margin="4" />
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

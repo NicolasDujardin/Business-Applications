@@ -1,0 +1,60 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BALaboVoorbeeld.UWP.DataTemplates">
+
+    <Style x:Key="lstidflt" TargetType="ListBoxItem">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    </Style>
+
+    <DataTemplate x:Key="weatheritemdt"  >
+        <Button Command="{Binding Source={StaticResource ioc},Path=ShowWeatherViewModel.ShowDetailsCMD}" CommandParameter="{Binding}">
+            <UserControl>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="Weather">
+                        <VisualState x:Name="Min0">
+                            <VisualState.StateTriggers>
+                                <AdaptiveTrigger MinWindowWidth="0" />
+                            </VisualState.StateTriggers>
+                            <VisualState.Setters>
+                                <Setter Target="column.Width" Value="0" />
+                                <Setter Target="row.Height" Value="*" />
+                                <Setter Target="txbText.(Grid.Column)" Value="0" />
+                                <Setter Target="txbMinAndMax.(Grid.Column)" Value="0" />
+                                <Setter Target="imgCondition.(Grid.RowSpan)" Value="1" />
+                                <Setter Target="txbText.(Grid.Row)" Value="2" />
+                                <Setter Target="txbMinAndMax.(Grid.Row)" Value="3" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Min548">
+                            <VisualState.StateTriggers>
+                                <AdaptiveTrigger MinWindowWidth="548" />
+                            </VisualState.StateTriggers>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="0" x:Name="row" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" x:Name="column" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.ColumnSpan="2" Text="{Binding title}" />
+                    <Image x:Name="imgCondition" Source="{Binding condition.ImgURL}" HorizontalAlignment="Left" Grid.Row="1" Grid.RowSpan="2" MaxHeight="50" MaxWidth="50" />
+                    <TextBlock x:Name="txbText" Grid.Row="1" Grid.Column="1" Text="{Binding forecast0.text}" />
+                    <TextBlock x:Name="txbMinAndMax" Grid.Row="2" Grid.Column="1" Text="{Binding forecast0.MinAndMax}" />
+                </Grid>
+            </UserControl>
+
+
+
+        </Button>
+
+    </DataTemplate>
+</ResourceDictionary>

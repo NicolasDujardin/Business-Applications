@@ -1,0 +1,32 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StudentModulePuntApp.Styles">
+
+    <SolidColorBrush x:Key="mijnblauw" Color="RoyalBlue" />
+    
+    <Style x:Name="TextBlockFontSize" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+
+    <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockFontSize}">
+        <Setter Property="Foreground" Value="{StaticResource mijnblauw}" />
+        <Setter Property="FontFamily" Value="Showcard Gothic" />
+    </Style>
+
+    <Style TargetType="TextBox" x:Name="textBox">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Foreground" Value="{StaticResource mijnblauw}" />
+        <Setter Property="FontFamily" Value="Showcard Gothic" />
+    </Style>
+
+    <Style x:Name="Geslaagd" TargetType="Grid">
+        <Setter Property="BorderBrush" Value="LightGreen" />
+        <Setter Property="BorderThickness" Value="3" />
+    </Style>
+
+    <Style x:Name="Gebuisd" TargetType="Grid">
+        <Setter Property="Background" Value="Coral" />
+    </Style>
+</ResourceDictionary>

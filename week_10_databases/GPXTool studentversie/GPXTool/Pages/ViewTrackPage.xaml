@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="GPXTool.Pages.ViewTrackPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GPXTool.Pages"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource ioc}, Path=ViewTrackViewModel}"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="TrackViewer" HorizontalAlignment="Center" FontSize="22" />
+        <ComboBox  ItemsSource="{Binding Trks, Mode=TwoWay}"
+                  ItemTemplate="{StaticResource dtTrk}"
+                   SelectedItem="{Binding SelectedTrk, Mode=TwoWay}"
+                  ItemContainerStyle="{StaticResource dfltcboi}"
+                  Grid.Row="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                  />
+        <Button Content="Show" HorizontalAlignment="Center" FontSize="18"
+                Command="{Binding ShowTrackCMD}"
+                Grid.Row="2"
+                x:Name="btnShow"
+                />
+        <maps:MapControl x:Name="myMap" Grid.Row="3" />
+    </Grid>
+</Page>

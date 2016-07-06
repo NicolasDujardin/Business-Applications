@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="ContinentLandStadFotos.UWP.Pages.PhotoOverviewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ContinentLandStadFotos.UWP.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource ioc},Path=PhotoOverviewViewModel}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <ComboBox Grid.Row="0" ItemsSource="{Binding Continents}" SelectedItem="{Binding Path=SelectedContinent,Mode=TwoWay}" Header="Continent:" Margin="10,10,0,0" HorizontalAlignment="Left" Width="177"/>
+            <ComboBox Grid.Row="0" ItemsSource="{Binding Countries}" Header="Country:" Margin="246,10,1497,0" HorizontalAlignment="Center" Width="177"/>
+            <ComboBox Grid.Row="0" ItemsSource="{Binding Cities}" Header="City:" Margin="0,10,1260,0" HorizontalAlignment="Right" Width="177" />
+            <GridView Grid.Row="1" ItemsSource="{Binding Photos}" ItemTemplate="{StaticResource PhotoDataTemplate}"/>
+        </Grid>
+    </Grid>
+</Page>

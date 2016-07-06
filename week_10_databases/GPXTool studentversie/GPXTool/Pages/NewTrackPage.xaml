@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="GPXTool.Pages.NewTrackPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GPXTool.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource ioc}, Path=NewTrackViewModel}"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="9" Text="Register new Track" FontSize="22"  HorizontalAlignment="Center" />
+        <Button x:Name="btnStart" Content="START NEW TRACK" FontSize="18" Grid.Row="1" Grid.Column="1" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4"
+                Command="{Binding Path=NewTrackCMD}"
+                />
+        <Button x:Name="btnStop" Content="STOP TRACKER" FontSize="18" Grid.Row="2" Grid.Column="1" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4"
+                Command="{Binding Path=StopCMD}"
+                />
+        <Button x:Name="btnExport" Content="EXPORT DATABASE" FontSize="18" Grid.Row="3" Grid.Column="1" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4"
+                Command="{Binding Path=ExportCMD}"
+                />
+        <Button x:Name="btnImport" Content="IMPORT DATABASE" FontSize="18" Grid.Row="4" Grid.Column="1" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="4"
+                Command="{Binding Path=ImportCMD}"
+                />
+        <ScrollViewer 
+            Grid.Row="5" Grid.Column="1"
+            >
+        <ListBox ItemsSource="{Binding Tracker.CurrentTrk.TrkPts}"
+                ItemTemplate="{StaticResource dtTrkPt}"
+                 ItemContainerStyle="{StaticResource dfltlsti}"
+                HorizontalAlignment="Stretch"
+                Grid.Row="3" Grid.Column="1"
+                />
+        </ScrollViewer>
+    </Grid>
+</Page>
